@@ -2,4 +2,35 @@
   <strong>Name:</strong>
   <%= @route.name %>
 </p>
+
+<p>
+  <strong>Trains on Route:</strong>
+  <% if @route.trains.empty? %>
+    Undefined
+  <% else %>
+    <% @route.trains.each do |train| %>
+      <% unless train == @route.trains.last %>
+        <%= train.name %>;
+      <% else %>
+        <%= train.name %>.
+      <% end %>
+    <% end %>  
+  <% end %>
+</p>
+
+<p>
+  <strong>Stations on Route:</strong>
+  <% if @route.railway_stations.empty? %>
+    Undefined
+  <% else %>
+    <% @route.railway_stations.each do |station| %>
+      <% unless station == @route.railway_stations.last %>
+        <%= station.title %>;
+      <% else %>
+        <%= station.title %>.
+      <% end %>
+    <% end %>  
+  <% end %>
+</p>
+
 <%= link_to 'Back', routes_path %>

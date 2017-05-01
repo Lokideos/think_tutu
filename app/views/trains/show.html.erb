@@ -10,5 +10,14 @@
   <%= @train.number %>
 </p>
 
+<p>
+  <strong>Current Route:</strong>
+  <% if @train.route.present? %>
+    <%= @train.route.name %>
+  <% else %>
+    Undefined
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
