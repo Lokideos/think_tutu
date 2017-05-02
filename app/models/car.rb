@@ -1,5 +1,5 @@
 class Car < ApplicationRecord
   belongs_to :train
 
-  validates :number, :seats, presence: :true
+  validates :number, :top_seats, :bottom_seats, presence: :true
 end
