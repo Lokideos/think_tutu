@@ -19,5 +19,49 @@
   <% end %>
 </p>
 
+<% cattle_cars = 0 %>
+<% coupe_cars = 0 %>
+
+<% cattle_cars_top_seats = 0 %>
+<% cattle_cars_bottom_seats = 0 %>
+
+<% coupe_cars_top_seats = 0 %>
+<% coupe_cars_bottom_seats = 0 %>
+
+<% @train.cars.each do |car| %>
+  <% if car.car_type == "Cattle" %>      
+    <% cattle_cars += 1 %>
+    <% cattle_cars_top_seats += car.top_seats %>
+    <% cattle_cars_bottom_seats += car.bottom_seats %>
+  <% else %>
+    <% coupe_cars +=1 %>
+    <% coupe_cars_top_seats += car.top_seats %>
+    <% coupe_cars_bottom_seats += car.bottom_seats %>
+  <% end %>
+<% end %>
+
+<p>
+  <strong>Cattle Cars:</strong>
+  <% if @train.cars.empty? %>
+    Undefined      
+  <% else %>
+    <%= cattle_cars %>;
+  <% end %>
+  <strong> Cattle Top Seats:</strong> <%= cattle_cars_top_seats %>;
+  <strong> Cattle Bottom Seats:</strong> <%= cattle_cars_bottom_seats %>.
+</p>
+
+<p>
+  <strong>Coupe Cars:</strong>
+  <% if @train.cars.empty? %>
+    Undefined      
+  <% else %>
+    <%= coupe_cars %>;
+  <% end %>    
+  <strong> Coupe Top Seats:</strong> <%= coupe_cars_top_seats %>;
+  <strong> Coupe Bottom Seats:</strong> <%= coupe_cars_bottom_seats %>.
+</p>
+
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
