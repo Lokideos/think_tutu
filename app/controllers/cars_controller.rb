@@ -5,15 +5,13 @@ class CarsController < ApplicationController
     @cars = Car.all
   end
 
-  def show
-  end
+  def show; end
 
-  def new 
+  def new
     @car = Car.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @car = Car.new(car_params)

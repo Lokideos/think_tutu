@@ -16,29 +16,29 @@ class RailwayStationsController < ApplicationController
   end
 
   def create
-    @railway_station = RailwayStation.new(railway_station_params)    
+    @railway_station = RailwayStation.new(railway_station_params)
 
     if @railway_station.save
-      redirect_to @railway_station        
+      redirect_to @railway_station
     else
-      render :new         
-    end    
+      render :new
+    end
   end
 
   def update
     if @railway_station.update(railway_station_params)
-      redirect_to @railway_station      
+      redirect_to @railway_station
     else
-      render :edit      
+      render :edit
     end
   end
-  
+
   def destroy
-    @railway_station.destroy    
+    @railway_station.destroy
     redirect_to railway_stations_path
   end
 
-  private    
+  private
 
   def set_railway_station
     @railway_station = RailwayStation.find(params[:id])

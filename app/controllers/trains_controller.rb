@@ -21,15 +21,15 @@ class TrainsController < ApplicationController
     if @train.save
       redirect_to @train
     else
-      render :new      
+      render :new
     end
   end
 
   def update
     if @train.update(train_params)
-      redirect_to @train      
+      redirect_to @train
     else
-      render :edit     
+      render :edit
     end
   end
 
@@ -40,12 +40,11 @@ class TrainsController < ApplicationController
   end
 
   private
-    
+
   def set_train
     @train = Train.find(params[:id])
   end
 
-  
   def train_params
     params.require(:train).permit(:name, :number, :route_id)
   end
