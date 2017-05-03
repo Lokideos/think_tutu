@@ -9,6 +9,8 @@ class Ticket < ApplicationRecord
   validates :number, presence: true
   validate :check_first_and_last_stations
 
+  private
+
   def check_first_and_last_stations
     errors.add(:first_station, "first station should not be equal to last station") if self.first_station_id == self.last_station_id
   end
