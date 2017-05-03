@@ -7,6 +7,6 @@ class Car < ApplicationRecord
   private
 
   def check_car_type
-    errors.add(:car_type, "Car type should be 'Cattle' or 'Coupe'") unless self.car_type == "Cattle" || "Coupe"
+    errors.add(:car_type, "Car type should be 'Cattle' or 'Coupe'") unless self.car_type == "Cattle" || self.car_type == "Coupe"
   end
 end
