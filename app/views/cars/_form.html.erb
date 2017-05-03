@@ -19,10 +19,7 @@
 
   <div class="field">
     <%= f.label(:car_type) %>
-    <%= f.label(:car_type, "Cattle") %>
-    <%= f.radio_button :car_type, "Cattle" %>
-    <%= f.label(:car_type, "Coupe") %>
-    <%= f.radio_button :car_type, "Coupe" %>    
+    <%= f.select :car_type, %w(Cattle Coupe) %>    
   </div>
 
   <div class="field">
