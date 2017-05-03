@@ -19,5 +19,23 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Cattle Cars:</strong>
+  <%= @train.cars_quantity_by_type("Cattle") %>;
+  <strong>Cattle Top Seats:</strong>
+  <%= @train.seats_by_car_and_seat_types("Cattle", "top_seats") %>;
+  <strong>Cattle Bottom Seats:</strong>
+  <%= @train.seats_by_car_and_seat_types("Cattle", "bottom_seats") %>
+</p>
+
+<p>
+  <strong>Coupe Cars:</strong>
+  <%= @train.cars_quantity_by_type("Coupe") %>;
+  <strong>Coupe Top Seats:</strong>
+  <%= @train.seats_by_car_and_seat_types("Coupe", "top_seats") %>;
+  <strong>Coupe Bottom Seats:</strong>
+  <%= @train.seats_by_car_and_seat_types("Coupe", "bottom_seats") %>
+</p>
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

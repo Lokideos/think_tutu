@@ -1,19 +1,17 @@
 class TicketsController < ApplicationController
   before_action :find_ticket, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @tickets = Ticket.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @ticket = Ticket.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @ticket = Ticket.new(ticket_params)
@@ -47,5 +45,4 @@ class TicketsController < ApplicationController
   def find_ticket
     @ticket = Ticket.find(params[:id])
   end
-
 end

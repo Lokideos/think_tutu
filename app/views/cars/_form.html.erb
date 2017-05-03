@@ -1,0 +1,33 @@
+<%= form_for(car) do |f| %>
+
+  <%= render '/common/error_check', resource: car %>
+
+  <div class="field">
+    <%= f.label :number %>
+    <%= f.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :top_seats %>
+    <%= f.text_field :top_seats %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bottom_seats %>
+    <%= f.text_field :bottom_seats %>
+  </div>
+
+  <div class="field">
+    <%= f.label(:car_type) %>
+    <%= f.select :car_type, %w(Cattle Coupe) %>    
+  </div>
+
+  <div class="field">
+    <%= f.label :train_id, "Current Train" %>
+    <%= f.collection_select :train_id, Train.all, :id, :name %>
+  </div>    
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

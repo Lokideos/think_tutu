@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @car.number %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @car.car_type %>
+</p>
+  
+<p>
+  <strong>Top Seats:</strong>
+  <%= @car.top_seats %>
+</p>
+
+<p>
+  <strong>Bottom Seats:</strong>
+  <%= @car.bottom_seats %>
+</p>
+
+<p>
+  <strong>Train:</strong>
+  <% if @car.train.present? %>
+    <%= @car.train.name %>
+  <% else %>
+    Undefined
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Back', cars_path %>
