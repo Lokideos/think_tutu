@@ -4,22 +4,12 @@ class Train < ApplicationRecord
   has_many :tickets
   has_many :cars
 
-
-  def cars_quantity_by_type (chosen_type)
-    quantity = 0
-    self.cars.each do |car|
-      quantity += 1 if car.car_type == chosen_type
-    end
-    quantity
+  def cars_quantity_by_type (chosen_type)    
+    cars.where(car_type: chosen_type).size
   end
 
-  def seats_by_car_and_seat_types (chosen_car_type, seat_type)
-    quantity = 0
-    self.cars.each do |car|
-      quantity += car.bottom_seats if car.car_type == chosen_car_type && seat_type == "bottom_seats"
-      quantity += car.top_seats if car.car_type == chosen_car_type && seat_type == "top_seats"
-    end
-    quantity
+  def seats_by_car_and_seat_types (chosen_car_type, seat_type)   
+    cars.where(car_type: chosen_car_type).sum(seat_type)
   end  
 
   validates :name, :number, presence: true
