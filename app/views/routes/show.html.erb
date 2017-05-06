@@ -18,19 +18,18 @@
   <% end %>
 </p>
 
+
 <p>
   <strong>Stations on Route:</strong>
+  <ul>
   <% if @route.railway_stations.empty? %>
     Undefined
-  <% else %>
+  <% else %>    
     <% @route.railway_stations.each do |station| %>
-      <% unless station == @route.railway_stations.last %>
-        <%= station.title %>;
-      <% else %>
-        <%= station.title %>.
-      <% end %>
-    <% end %>  
+      <li><%= station.title %></li>
+    <% end %>    
   <% end %>
+  </ul>
 </p>
 
 <%= link_to 'Back', routes_path %>

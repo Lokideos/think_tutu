@@ -1,6 +1,6 @@
 class Car < ApplicationRecord
-  belongs_to :train
+  belongs_to :train, optional: true
 
-  validates :number, :top_seats, :bottom_seats, presence: :true
-  validates :car_type, inclusion: { in: %w[Cattle Coupe], message: '%{value} is not a valid car type' }
+  validates :number, presence: :true
+  validates :type, inclusion: { in: %w[CattleCar CoupeCar SVCar SeatCar], message: '%{value} is not a valid car type' }
 end
