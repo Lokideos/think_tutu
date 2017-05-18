@@ -18,10 +18,10 @@
   </div>
 
   <div class="field">
-    <%= f.label(:car_type) %>
-    <%= f.select :car_type, %w(Cattle Coupe) %>    
+    <%= f.label :type %>
+    <%= f.select :type, %w(CoupeCar CattleCar) %>
   </div>
-
+    
   <div class="field">
     <%= f.label :train_id, "Current Train" %>
     <%= f.collection_select :train_id, Train.all, :id, :name %>
