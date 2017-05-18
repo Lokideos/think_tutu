@@ -22,14 +22,12 @@
   <strong>Stations on Route:</strong>
   <% if @route.railway_stations.empty? %>
     Undefined
-  <% else %>
-    <% @route.railway_stations.each do |station| %>
-      <% unless station == @route.railway_stations.last %>
-        <%= station.title %>;
-      <% else %>
-        <%= station.title %>.
+  <% else %>    
+    <% RailwayStationsRoute.all.where(["railway_stations_routes.route_id = ?", @route.id]).ordered.each do |association| %>
+      <% RailwayStation.all.where(["railway_stations.id = ?", association.railway_station_id]).each do |station| %>
+        <%= station.title %>
       <% end %>
-    <% end %>  
+    <% end %>
   <% end %>
 </p>
 
