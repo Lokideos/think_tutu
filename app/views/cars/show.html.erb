@@ -15,14 +15,29 @@
   <%= @car.bottom_seats %>
 </p>
 
-<p>
-  <strong>Train:</strong>
-  <% if @car.train.present? %>
-    <%= @car.train.name %>
-  <% else %>
-    Undefined
-  <% end %>
-</p>
+<% if @car.train.present? %>
+  <p>
+    <strong>Train:</strong>
+      <%= @car.train.name %>    
+  </p>
+
+  <p>
+    <strong>Position in train:</strong>
+      <%= @car.number_in_train %>  
+  </p>
+<% else %>
+  <p>
+    <strong>Train:</strong>
+      Undefined
+  </p>
+
+  <p>
+    <strong>Position in train:</strong>
+      -
+  </p>
+<% end %>
+
+
 
 <%= link_to 'Edit', edit_car_path(@car) %> |
 <%= link_to 'Back', cars_path %>
