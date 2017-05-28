@@ -8,18 +8,18 @@ class Train < ApplicationRecord
     cars.where(type: chosen_type).size
   end
 
-  #Needed method
+  # Needed method
   def seats_by_car_and_seat_types(chosen_car_type, seat_type)
     cars.where(type: chosen_car_type).sum(seat_type)
   end
 
   def sort_cars_by_position
-    if self.sort_type 
+    if sort_type
       cars.order(number_in_train: :asc)
     else
       cars.order(number_in_train: :desc)
     end
   end
 
-  validates :name, :number, :sort_type, presence: true
+  validates :name, :number, presence: true
 end
