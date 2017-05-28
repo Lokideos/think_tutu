@@ -1,4 +1,4 @@
 class CattleCar < Car  
 
-  validates :top_seats, :side_top_seats, :side_bottom_seats, presence: true
+  validates :bottom_seats, :top_seats, :side_top_seats, :side_bottom_seats, presence: true
 end

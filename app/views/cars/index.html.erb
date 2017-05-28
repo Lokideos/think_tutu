@@ -15,7 +15,8 @@
     </tr>
   </thead>
 
-  <tbody>    
+  <tbody>
+    <% @cars.becomes(Car) %>
     <%= render @cars %>
   </tbody>
 </table>

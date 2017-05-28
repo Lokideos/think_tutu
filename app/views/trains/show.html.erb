@@ -20,16 +20,25 @@
 </p>
 
 <p>
+  <strong>Type of Cars' sorting</strong>
+  <%= @train.sort_type %>
+</p>
+
+<p>
   <strong>Cattle Cars:</strong>
   <%= @train.cars_quantity_by_type("CattleCar") %>;
   <strong>Cattle Top Seats:</strong>
   <%= @train.seats_by_car_and_seat_types("CattleCar", "top_seats") %>;
   <strong>Cattle Bottom Seats:</strong>
   <%= @train.seats_by_car_and_seat_types("CattleCar", "bottom_seats") %>
+  <strong>Cattle Side Top Seats:</strong>
+  <%= @train.seats_by_car_and_seat_types("CattleCar", "side_top_seats") %>;
+  <strong>Cattle Side Bottom Seats:</strong>
+  <%= @train.seats_by_car_and_seat_types("CattleCar", "side_bottom_seats") %>
   <ul>
     <% @train.cars.each do |car| %>
       <% if car.type == "CattleCar" %>
-        <li><%= link_to "Car number #{car.number}", car %></li>
+        <li><%= link_to "Car number #{car.number}", car_path(car) %></li>
       <% end %>
     <% end %>
   </ul>
@@ -45,11 +54,50 @@
   <ul>
     <% @train.cars.each do |car| %>
       <% if car.type == "CoupeCar" %>
-        <li><%= link_to "Car number #{car.number}", car %></li>
+        <li><%= link_to "Car number #{car.number}", car_path(car) %></li>
       <% end %>
     <% end %>
   </ul>
 </p>
+
+<p>
+  <strong>SV Cars:</strong>
+  <%= @train.cars_quantity_by_type("SvCar") %>;  
+  <strong>SV Bottom Seats:</strong>
+  <%= @train.seats_by_car_and_seat_types("SvCar", "bottom_seats") %>
+  <ul>
+    <% @train.cars.each do |car| %>
+      <% if car.type == "SvCar" %>
+        <li><%= link_to "Car number #{car.number}", car_path(car) %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Seat Only Cars:</strong>
+  <%= @train.cars_quantity_by_type("SeatOnlyCar") %>;  
+  <strong>Seat Only Seats:</strong>
+  <%= @train.seats_by_car_and_seat_types("SeatOnlyCar", "seat_only_places") %>
+  <ul>
+    <% @train.cars.each do |car| %>
+      <% if car.type == "SeatOnlyCar" %>
+        <li><%= link_to "Car number #{car.number}", car_path(car) %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Cars by position in train</strong>
+  <ul>
+    <% @train.sort_cars_by_position.each do |car| %>    
+      <li><%= car.number_in_train %> - <%= link_to "Car number #{car.number}", car_path(car) %></li>
+    <% end %>
+  </ul>
+</p>
+
+
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
