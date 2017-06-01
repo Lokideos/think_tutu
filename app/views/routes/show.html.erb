@@ -21,15 +21,13 @@
 <p>
   <strong>Stations on Route:</strong>
   <ul>
-  <% if @route.railway_stations.empty? %>
-    Undefined
-  <% else %>    
-    <% RailwayStationsRoute.all.where(["railway_stations_routes.route_id = ?", @route.id]).ordered.each do |association| %>
-      <% RailwayStation.all.where(["railway_stations.id = ?", association.railway_station_id]).each do |station| %>
+    <% if @route.railway_stations.empty? %>
+      Undefined
+    <% else %>
+      <% @route.stations_in_route.each do |station| %>
         <li><%= station.title %></li>
       <% end %>
     <% end %>
-  <% end %>
   </ul>
 </p>
 
