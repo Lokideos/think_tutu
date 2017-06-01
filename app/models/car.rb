@@ -11,6 +11,10 @@ class Car < ApplicationRecord
   private
 
   def set_number
-    self.number_in_train = train.cars.length + 1 if train_id
+    if train.cars.length < 1 
+      self.number_in_train = 1
+    else
+      self.number_in_train = train.cars.last.number_in_train + 1
+    end    
   end
 end
