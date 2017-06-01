@@ -8,6 +8,8 @@ class Car < ApplicationRecord
 
   scope :ordered_by_position, -> (order_type) { order(:number_in_train => order_type) }
 
+  scope :ordered_by_type, -> (car_type) { where(:type => car_type) }
+
   private
 
   def set_number
