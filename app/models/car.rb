@@ -6,17 +6,17 @@ class Car < ApplicationRecord
 
   before_save :set_number
 
-  scope :ordered_by_position, -> (order_type) { order(:number_in_train => order_type) }
+  scope :ordered_by_position, ->(order_type) { order(number_in_train: order_type) }
 
-  scope :ordered_by_type, -> (car_type) { where(:type => car_type) }
+  scope :ordered_by_type, ->(car_type) { where(type: car_type) }
 
   private
 
   def set_number
-    if train.cars.length < 1 
-      self.number_in_train = 1
-    else
-      self.number_in_train = train.cars.last.number_in_train + 1
-    end    
+    self.number_in_train = if train.cars.empty?
+                             1
+                           else
+                             train.cars.last.number_in_train + 1
+                           end
   end
 end
