@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170528181727) do
+ActiveRecord::Schema.define(version: 20170601174541) do
 
   create_table "cars", force: :cascade do |t|
     t.string   "number"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20170528181727) do
     t.datetime "updated_at",         null: false
     t.integer  "current_station_id"
     t.integer  "route_id"
-    t.boolean  "sort_type"
+    t.string   "sort_type"
     t.index ["current_station_id"], name: "index_trains_on_current_station_id"
     t.index ["route_id"], name: "index_trains_on_route_id"
   end

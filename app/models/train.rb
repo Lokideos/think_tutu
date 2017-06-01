@@ -13,14 +13,5 @@ class Train < ApplicationRecord
     cars.where(type: chosen_car_type).sum(seat_type)
   end
 
-  def sorted_cars
-    
-    if sort_type
-      cars.order(number_in_train: :asc)
-    else
-      cars.order(number_in_train: :desc)
-    end
-  end
-
   validates :name, :number, presence: true
 end

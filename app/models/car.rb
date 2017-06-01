@@ -6,6 +6,8 @@ class Car < ApplicationRecord
 
   before_save :set_number
 
+  scope :ordered_by_position, -> (order_type) { order(:number_in_train => order_type) }
+
   private
 
   def set_number
