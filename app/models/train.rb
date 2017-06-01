@@ -13,7 +13,8 @@ class Train < ApplicationRecord
     cars.where(type: chosen_car_type).sum(seat_type)
   end
 
-  def sort_cars_by_position
+  def sorted_cars
+    
     if sort_type
       cars.order(number_in_train: :asc)
     else

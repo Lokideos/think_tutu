@@ -91,7 +91,7 @@
 <p>
   <strong>Cars by position in train</strong>
   <ul>
-    <% @train.sort_cars_by_position.each do |car| %>    
+    <% @train.sorted_cars.each do |car| %>    
       <li><%= car.number_in_train %> - <%= link_to "Car number #{car.number}", car_path(car) %></li>
     <% end %>
   </ul>
