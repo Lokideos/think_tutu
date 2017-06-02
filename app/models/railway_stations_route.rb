@@ -9,10 +9,6 @@ class RailwayStationsRoute < ApplicationRecord
   scope :ordered, -> { order(:station_in_route_number) }
 
   def set_position_in_route
-    if RailwayStationsRoute.all.where(['railway_stations_routes.route_id = ?', route_id]).ordered.last.nil?
-      self.station_in_route_number = 1
-    else
-      self.station_in_route_number = RailwayStationsRoute.all.where(['railway_stations_routes.route_id = ?', route_id]).ordered.last.station_in_route_number + 1
-    end
+    self.station_in_route_number = route.railway_stations_routes.maximum(:station_in_route_number).to_i + 1
   end
 end
