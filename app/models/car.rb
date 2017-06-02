@@ -13,10 +13,6 @@ class Car < ApplicationRecord
   private
 
   def set_number
-    self.number_in_train = if train.cars.empty?
-                             1
-                           else
-                             train.cars.last.number_in_train + 1
-                           end
+    self.number_in_train = train.cars.maximum(:number_in_train).to_i + 1
   end
 end
