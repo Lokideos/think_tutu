@@ -6,7 +6,13 @@ class Car < ApplicationRecord
 
   before_save :set_number
 
-  scope :ordered_by_position, ->(order_type) { order(number_in_train: order_type) }
+  scope :ordered_by_position, ->(order_type) { 
+    if order_type 
+      order(number_in_train: :asc)
+    else
+      order(number_in_train: :desc) 
+    end
+  }
 
   scope :pick_type, ->(car_type) { where(type: car_type) }
 
