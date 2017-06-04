@@ -4,7 +4,7 @@ class Car < ApplicationRecord
   validates :number, presence: :true
   validates :number_in_train, uniqueness: { scope: :train_id }
 
-  before_save :set_number
+  before_validation :set_number
 
   scope :ordered_by_position, ->(order_type) {
     if order_type
