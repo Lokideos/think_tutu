@@ -13,8 +13,14 @@ class Car < ApplicationRecord
       order(number_in_train: :desc)
     end
   }
+  
+  scope :coupe, -> { where(type: "CoupeCar") }
 
-  scope :pick_type, ->(car_type) { where(type: car_type) }
+  scope :cattle, -> { where(type: "CattleCar") }
+
+  scope :sv, -> { where(type: "SvCar") }
+
+  scope :seat_only, -> { where(type: "SeatOnlyCar") }  
 
   private
 
