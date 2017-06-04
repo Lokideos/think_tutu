@@ -4,7 +4,7 @@ class RailwayStationsRoute < ApplicationRecord
 
   validates :station_in_route_number, uniqueness: { scope: :route_id }
 
-  before_save :set_position_in_route
+  before_validation :set_position_in_route
 
   scope :ordered, -> { order(:station_in_route_number) }
 
