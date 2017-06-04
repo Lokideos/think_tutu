@@ -24,7 +24,7 @@
     <% if @route.railway_stations.empty? %>
       Undefined
     <% else %>
-      <% @route.stations_in_route.each do |rsr| %>
+      <% @route.railway_stations_routes.ordered.each do |rsr| %>
         <li><%= rsr.railway_station.title %></li>
       <% end %>
     <% end %>

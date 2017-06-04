@@ -1,11 +1,7 @@
 class Route < ApplicationRecord
   has_many :railway_stations_routes
   has_many :railway_stations, through: :railway_stations_routes
-  has_many :trains
-
-  def stations_in_route
-    railway_stations_routes.ordered
-  end
+  has_many :trains  
 
   validates :name, presence: true
 end
