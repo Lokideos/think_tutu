@@ -1,4 +1,6 @@
-<%= form_for(car.becomes(Car)) do |f| %>
+<h1>New Car</h1>
+
+<%= form_for [@train, car.becomes(Car)] do |f| %>
 
   <%= render '/common/error_check', resource: car %>
 
