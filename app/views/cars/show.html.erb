@@ -5,28 +5,34 @@
   <%= @car.number %>
 </p>
 
+<% if @car.train.present? %>
+  <p>
+    <strong>Train:</strong>
+      <%= @car.train.name %>    
+  </p>
+
+  <p>
+    <strong>Position in train:</strong>
+      <%= @car.number_in_train %>  
+  </p>
+<% else %>
+  <p>
+    <strong>Train:</strong>
+      Undefined
+  </p>
+
+  <p>
+    <strong>Position in train:</strong>
+      -
+  </p>
+<% end %>
+
 <p>
-  <strong>Type:</strong>
-  <%= @car.car_type %>
-</p>
-  
-<p>
-  <strong>Top Seats:</strong>
-  <%= @car.top_seats %>
+  <h2>Seats</h2>
 </p>
 
 <p>
-  <strong>Bottom Seats:</strong>
-  <%= @car.bottom_seats %>
-</p>
-
-<p>
-  <strong>Train:</strong>
-  <% if @car.train.present? %>
-    <%= @car.train.name %>
-  <% else %>
-    Undefined
-  <% end %>
+  <%= render @car.type.underscore %>
 </p>
 
 <%= link_to 'Edit', edit_car_path(@car) %> |

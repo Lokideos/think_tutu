@@ -20,22 +20,76 @@
 </p>
 
 <p>
+  <strong>Type of Cars' sorting</strong>
+  <%= @train.sort_type %>
+</p>
+
+<p>
   <strong>Cattle Cars:</strong>
-  <%= @train.cars_quantity_by_type("Cattle") %>;
+  <%= @train.cars_quantity_by_type("CattleCar") %>;
   <strong>Cattle Top Seats:</strong>
-  <%= @train.seats_by_car_and_seat_types("Cattle", "top_seats") %>;
+  <%= @train.seats_by_car_and_seat_types("CattleCar", "top_seats") %>;
   <strong>Cattle Bottom Seats:</strong>
-  <%= @train.seats_by_car_and_seat_types("Cattle", "bottom_seats") %>
+  <%= @train.seats_by_car_and_seat_types("CattleCar", "bottom_seats") %>
+  <strong>Cattle Side Top Seats:</strong>
+  <%= @train.seats_by_car_and_seat_types("CattleCar", "side_top_seats") %>;
+  <strong>Cattle Side Bottom Seats:</strong>
+  <%= @train.seats_by_car_and_seat_types("CattleCar", "side_bottom_seats") %>
+  <ul>
+    <% @train.cars.cattle.each do |car| %>      
+      <li><%= link_to "Car number #{car.number}", car_path(car) %></li>      
+    <% end %>
+  </ul>
 </p>
 
 <p>
   <strong>Coupe Cars:</strong>
-  <%= @train.cars_quantity_by_type("Coupe") %>;
+  <%= @train.cars_quantity_by_type("CoupeCar") %>;
   <strong>Coupe Top Seats:</strong>
-  <%= @train.seats_by_car_and_seat_types("Coupe", "top_seats") %>;
+  <%= @train.seats_by_car_and_seat_types("CoupeCar", "top_seats") %>;
   <strong>Coupe Bottom Seats:</strong>
-  <%= @train.seats_by_car_and_seat_types("Coupe", "bottom_seats") %>
+  <%= @train.seats_by_car_and_seat_types("CoupeCar", "bottom_seats") %>
+  <ul>
+    <% @train.cars.coupe.each do |car| %>      
+      <li><%= link_to "Car number #{car.number}", car_path(car) %></li>      
+    <% end %>
+  </ul>
 </p>
+
+<p>
+  <strong>SV Cars:</strong>
+  <%= @train.cars_quantity_by_type("SvCar") %>;  
+  <strong>SV Bottom Seats:</strong>
+  <%= @train.seats_by_car_and_seat_types("SvCar", "bottom_seats") %>
+  <ul>
+    <% @train.cars.sv.each do |car| %>      
+      <li><%= link_to "Car number #{car.number}", car_path(car) %></li>      
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Seat Only Cars:</strong>
+  <%= @train.cars_quantity_by_type("SeatOnlyCar") %>;  
+  <strong>Seat Only Seats:</strong>
+  <%= @train.seats_by_car_and_seat_types("SeatOnlyCar", "seat_only_places") %>
+  <ul>
+    <% @train.cars.seat_only.each do |car| %>      
+      <li><%= link_to "Car number #{car.number}", car_path(car) %></li>      
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Cars by position in train</strong>
+  <ul>    
+    <% @train.cars.ordered_by_position(@train.sort_type).each do |car| %>    
+      <li><%= car.number_in_train %> - <%= link_to "Car number #{car.number}", car_path(car) %></li>
+    <% end %>
+  </ul>
+</p>
+
+
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

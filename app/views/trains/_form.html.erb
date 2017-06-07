@@ -16,6 +16,15 @@
     <%= f.label :route_id, "Current Route" %>
     <%= f.collection_select :route_id, Route.all, :id, :name %>
   </div>
+  
+  <div class="field">
+    <strong>Type of Sort for cars attached to train</strong>
+    <%= f.label :ascend %>
+    <%= f.radio_button :sort_type, "1" %> 
+    <%= f.label :descend %>
+    <%= f.radio_button :sort_type, "0" %>
+  </div>
+  
 
   <div class="actions">
     <%= f.submit %>

@@ -1,14 +1,23 @@
-<tr>
-  <td><%= car.number %></td>   
-  <td><%= car.car_type %></td>
+<tr>    
+  <td><%= car.number %></td>
+  <td><%= car.type %></td>
   <td><%= car.top_seats %></td>
   <td><%= car.bottom_seats %></td>
-  <td>
-    <% if car.train.present? %>
+  <% if car.train.present? %>
+    <td>    
       <%= car.train.name %>
-    <% else %>
+    </td>
+    <td>
+      <%= car.number_in_train %>
+    </td>
+  <% else %>
+    <td>
       Undefined
-    <% end %>
+    </td>
+    <td>
+      -
+    </td>
+  <% end %>
   </td>
   <td><%= link_to 'Show', car %></td>
   <td><%= link_to 'Edit', edit_car_path(car) %></td>
