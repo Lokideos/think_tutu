@@ -79,7 +79,7 @@
   <%= @train.seats_by_car_and_seat_types("SeatOnlyCar", "seat_only_places") %>
   <ul>
     <% @train.cars.seat_only.each do |car| %>      
-      <li><%= link_to "Car number #{car.number}", [@train, car.becomes(Car)] %></li>      
+      <li><%= link_to "Car number #{car.number}", car.becomes(Car) %></li>      
     <% end %>
   </ul>
 </p>
