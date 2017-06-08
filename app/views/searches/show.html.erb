@@ -1,4 +1,5 @@
 <h1>Ticket purchasing</h1>
+<%= debug(params) %>
 
 <p>
   <strong>Pick up train</strong>  
@@ -12,13 +13,13 @@
     </tr>
   </thead>
   <tbody>
-    <%= form_tag(new_ticket_url, method: :get) do %>      
+    <%= form_tag(new_ticket_path, method: :get) do %>      
       <% Route.available_routes(params[:arrival_station_id], params[:departure_station_id]).each do |route| %>
         <% route.trains.each do |train| %>
           <tr>
-            <td><%= train.name %></td>
-            <td><%= train.route.railway_stations_routes.find_by(railway_station_id: params[:departure_station_id]).departure_time %></td>
-            <td><%= train.route.railway_stations_routes.find_by(railway_station_id: params[:arrival_station_id]).arrival_time %></td>
+            <td><%= text_field_tag :chosen_train, train.name, readonly: true %></td>
+            <td><%= text_field_tag :departure_time, train.route.railway_stations_routes.find_by(railway_station_id: params[:departure_station_id]).departure_time, readonly: true %></td>
+            <td><%= text_field_tag :arrival_time, train.route.railway_stations_routes.find_by(railway_station_id: params[:arrival_station_id]).arrival_time, readonly: true %></td>
             <td><%= submit_tag ("Buy ticket") %></td>
           </tr>
         <% end %>
