@@ -1,0 +1,17 @@
+<h1>Please type in your credentials and personal id to complete purchasing process</h1>
+<%= debug(params) %>
+
+<%= form_for(@ticket) do |f| %>
+  <%= f.label("Ticket number") %>
+  <%= f.number_field :number %>
+  <%= f.label("Credentials") %>
+  <%= f.text_field :fio %>
+  <%= f.label("Personal ID") %>
+  <%= f.text_field :personal_id %>
+  <%= f.hidden_field :chosen_train, value: params[:chosen_train] %>
+  <%= f.hidden_field :departure_time, value: params[:departure_time] %>
+  <%= f.hidden_field :arrival_time, value: params[:arrival_time] %> 
+  <%= f.submit "Purchase ticket" %>
+<% end %>
+
+<%= link_to "Back", new_search_path %>

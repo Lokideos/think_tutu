@@ -1,0 +1,26 @@
+<h1>Thanks for purchasing!</h1>
+
+<h2>Ticket information:</h2>
+
+<table>
+  <thead>
+    <tr>
+      <td>Credentials</td>
+      <td>Personal ID</td>
+      <td>Train</td>
+      <td>Arrival Time</td>
+      <td>Departure Time</td>
+    </tr>
+  </thead>
+  <tbody>    
+    <tr>
+      <td><%= @ticket.fio %></td>
+      <td><%= @ticket.personal_id %></td>
+      <td><%= @ticket.chosen_train %></td>
+      <td><%= @ticket.arrival_time %></td>
+      <td><%= @ticket.departure_time %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to "Back", "/" %>
