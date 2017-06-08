@@ -1,0 +1,33 @@
+<h1>Ticket purchasing</h1>
+
+<p>
+  <strong>Pick up train</strong>  
+  <table>
+  <thead>
+    <tr>
+      <td>Train</td>
+      <td>Departure Time</td>
+      <td>Arrival Time</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= form_tag(new_ticket_url, method: :get) do %>      
+      <% Route.available_routes(params[:arrival_station_id], params[:departure_station_id]).each do |route| %>
+        <% route.trains.each do |train| %>
+          <tr>
+            <td><%= train.name %></td>
+            <td><%= train.route.railway_stations_routes.find_by(railway_station_id: params[:departure_station_id]).departure_time %></td>
+            <td><%= train.route.railway_stations_routes.find_by(railway_station_id: params[:arrival_station_id]).arrival_time %></td>
+            <td><%= submit_tag ("Buy ticket") %></td>
+          </tr>
+        <% end %>
+      <% end %>            
+    <% end %>
+  </tbody>
+  </table>
+  
+</p>
+
+
+<%= link_to "Back", "/" %>
