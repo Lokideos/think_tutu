@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
   resources :railway_stations do
     patch :update_position, on: :member
-    patch :update_arrival_time, on: :member
-    patch :update_departure_time, on: :member
+    patch :update_travel_time, on: :member   
   end
   resources :trains do
     resources :cars, shallow: true
   end
   resources :routes, :tickets, :users
 
-  resource :search, only: [:new, :show, :edit]
+  resource :search, only: [:new, :show]
 
   get 'welcome/index'
 
