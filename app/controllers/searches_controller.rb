@@ -6,7 +6,7 @@ class SearchesController < ApplicationController
   def new    
   end
 
-  def edit    
+  def create
   end
 
   private
