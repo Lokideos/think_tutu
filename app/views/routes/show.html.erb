@@ -45,11 +45,11 @@
             </td>
             <%= form_tag update_travel_time_railway_station_path(station), method: :patch do %>
               <td>              
-                <%= number_field_tag :arrival_time, station.arrival_at(@route) %>
+                <%= date_field_tag :arrival_time, station.arrival_at(@route) %>
                 <%= hidden_field_tag :route_id, @route.id %>                
               </td>
               <td>              
-                <%= number_field_tag :departure_time, station.departure_at(@route) %>
+                <%= date_field_tag :departure_time, station.departure_at(@route) %>
                 <%= hidden_field_tag :route_id, @route.id %>
                 <%= submit_tag "Submit changes" %>
               </td>            
