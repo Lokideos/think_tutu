@@ -13,5 +13,13 @@ class Train < ApplicationRecord
     cars.where(type: chosen_car_type).sum(seat_type)
   end
 
+  def departure_time(departure_station_id)
+    route.railway_stations_routes.find_by(railway_station_id: departure_station_id).departure_time
+  end
+
+  def arrival_time(arrival_station_id)
+    route.railway_stations_routes.find_by(railway_station_id: arrival_station_id).arrival_time
+  end
+
   validates :name, :number, presence: true
 end
