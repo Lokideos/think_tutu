@@ -9,7 +9,7 @@ class Route < ApplicationRecord
     chosen_routes = []
     Route.all.each do |route|
       if route.stations_in_route?(arrival_station_id, departure_station_id)
-        chosen_routes << route 
+        chosen_routes << route
       end
     end  
     chosen_routes

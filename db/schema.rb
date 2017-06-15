@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170608171511) do
+ActiveRecord::Schema.define(version: 20170615141521) do
 
   create_table "cars", force: :cascade do |t|
     t.string   "number"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20170608171511) do
     t.integer  "first_station_id"
     t.integer  "last_station_id"
     t.string   "fio"
-    t.string   "personal_id"
+    t.string   "passport_data"
     t.integer  "departure_time"
     t.integer  "arrival_time"
     t.string   "chosen_train"
