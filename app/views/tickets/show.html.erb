@@ -13,12 +13,12 @@
     </tr>
   </thead>
   <tbody>    
-    <tr>
+    <tr>      
       <td><%= @ticket.fio %></td>
       <td><%= @ticket.passport_data %></td>
-      <td><%= @ticket.chosen_train %></td>
-      <td><%= @ticket.arrival_time %></td>
-      <td><%= @ticket.departure_time %></td>
+      <td><%= @train.name %></td>
+      <td><%= @train.arrival_time(@ticket.last_station_id) %></td>
+      <td><%= @train.departure_time(@ticket.first_station_id) %></td>      
     </tr>
   </tbody>
 </table>

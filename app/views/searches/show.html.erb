@@ -18,6 +18,9 @@
           <td><%= text_field_tag :chosen_train, train.name, readonly: true %></td>
           <td><%= text_field_tag :departure_time, train.departure_time(params[:departure_station_id]), readonly: true %></td>
           <td><%= text_field_tag :arrival_time, train.arrival_time(params[:arrival_station_id]), readonly: true %></td>
+          <td><%= hidden_field_tag :arrival_station_id, params[:arrival_station_id] %></td>
+          <td><%= hidden_field_tag :departure_station_id, params[:departure_station_id] %></td>
+          <td><%= hidden_field_tag :train_id, train.id.to_i %></td>
           <td><%= submit_tag ("Buy ticket") %></td>
         </tr>
       <% end %>
