@@ -4,9 +4,7 @@ class SearchesController < ApplicationController
     @chosen_trains = []
 
     Route.available_routes(params[:arrival_station_id], params[:departure_station_id]).each do |route|
-      route.trains.each do |train|
-        @chosen_trains << train
-      end
+      @chosen_trains = route.trains.flat_map { |train| train }      
     end
   end
 
