@@ -6,7 +6,7 @@ class TicketsController < ApplicationController
   end
 
   def show
-    @train = Train.find(@ticket.train_id)
+    @train = @ticket.train
   end
 
   def new
