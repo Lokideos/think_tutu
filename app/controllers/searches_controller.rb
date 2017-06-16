@@ -1,14 +1,12 @@
 class SearchesController < ApplicationController
-
-  def show    
+  def show
     @chosen_trains = []
 
-    @chosen_trains = Route.with_stations(params[:arrival_station_id], params[:departure_station_id]).flat_map(&:trains)      
+    @chosen_trains = Route.with_stations(params[:arrival_station_id], params[:departure_station_id]).flat_map(&:trains)
   end
 
-  def new
-  end
-  
+  def new; end
+
   private
 
   def search_params

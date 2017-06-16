@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :railway_stations do
     patch :update_position, on: :member
-    patch :update_travel_time, on: :member   
+    patch :update_travel_time, on: :member
   end
   resources :trains do
     resources :cars, shallow: true

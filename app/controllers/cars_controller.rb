@@ -8,13 +8,13 @@ class CarsController < ApplicationController
 
   def show; end
 
-  def new    
+  def new
     @car = Car.new
   end
 
   def edit; end
 
-  def create    
+  def create
     @car = @train.cars.new(car_params)
 
     if @car.save
