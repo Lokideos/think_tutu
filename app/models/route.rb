@@ -5,7 +5,7 @@ class Route < ApplicationRecord
 
   validates :name, presence: true
 
-  def self.available_routes(arrival_station_id, departure_station_id)
+  def self.with_stations(arrival_station_id, departure_station_id)
     Route.joins(:railway_stations_routes).where(railway_stations_routes: { railway_station_id: arrival_station_id }) &
     Route.joins(:railway_stations_routes).where(railway_stations_routes: { railway_station_id: departure_station_id })
   end
