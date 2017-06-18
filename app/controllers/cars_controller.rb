@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
+  before_action :set_train, only: [:create, :new]
 
   def index
     @cars = Car.all
@@ -14,10 +15,10 @@ class CarsController < ApplicationController
   def edit; end
 
   def create
-    @car = Car.new(car_params)
+    @car = @train.cars.new(car_params)
 
     if @car.save
-      redirect_to car_path(@car)
+      redirect_to @train
     else
       render :new
     end
@@ -40,10 +41,14 @@ class CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(:number, :top_seats, :bottom_seats, :train_id, :side_top_seats, :side_bottom_seats, :seat_only_places, :type)
+    params.require(:car).permit(:number, :top_seats, :bottom_seats, :side_top_seats, :side_bottom_seats, :seat_only_places, :type)
   end
 
   def set_car
     @car = Car.find(params[:id])
+  end
+
+  def set_train
+    @train = Train.find(params[:train_id])
   end
 end

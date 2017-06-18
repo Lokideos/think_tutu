@@ -1,0 +1,16 @@
+<h1>Please type in your credentials and personal id to complete purchasing process</h1>
+
+<%= form_for(@ticket) do |f| %>
+  <%= f.label("Ticket number") %>
+  <%= f.number_field :number %>
+  <%= f.label("Credentials") %>
+  <%= f.text_field :fio %>
+  <%= f.label("Passport Data") %>
+  <%= f.text_field :passport_data %> 
+  <%= f.hidden_field :first_station_id, value: params[:departure_station_id] %>
+  <%= f.hidden_field :last_station_id, value: params[:arrival_station_id] %>
+  <%= f.hidden_field :train_id, value: params[:train_id] %>
+  <%= f.submit "Purchase ticket" %>
+<% end %>
+
+<%= link_to "Back", new_search_path %>

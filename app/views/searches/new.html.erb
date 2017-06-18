@@ -1,0 +1,29 @@
+<h1>Choose your destination</h1>
+
+<%= form_tag(search_path, method: :get) do %>
+  <table>
+    <thead>
+      <tr>
+        <td>Departure Station</td>
+        <td>Arrival Station</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td>
+            <%= label_tag("Departure") %>
+            <%= select_tag :arrival_station_id, options_from_collection_for_select(RailwayStation.all, "id", "title") %>          
+          </td>
+          <td>
+            <%= label_tag("Arrival") %>
+            <%= select_tag :departure_station_id, options_from_collection_for_select(RailwayStation.all, "id", "title") %>                   
+          </td>
+      </tr>
+      <tr>
+        <td><%= submit_tag("Search for destination") %></td>
+      </tr>      
+    </tbody>
+  </table>
+<% end %>
+
+<%= link_to "Back", "/" %>
