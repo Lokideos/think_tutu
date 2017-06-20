@@ -2,4 +2,4 @@
 
 <%= render 'form', car: @car %>
 
-<%= link_to 'Back', @car.becomes(Car) %>
+<%= link_to 'Back', [:admin, @car.becomes(Car)] %>

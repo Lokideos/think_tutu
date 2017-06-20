@@ -18,7 +18,7 @@ class Admin::CarsController < Admin::BaseController
     @car = @train.cars.new(car_params)
 
     if @car.save
-      redirect_to @train
+      redirect_to admin_train_path(@train)
     else
       render :new
     end
@@ -26,7 +26,7 @@ class Admin::CarsController < Admin::BaseController
 
   def update
     if @car.update(car_params)
-      redirect_to @car
+      redirect_to admin_car_path(@car)
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class Admin::CarsController < Admin::BaseController
   def destroy
     @car.destroy
 
-    redirect_to cars_path
+    redirect_to admin_cars_path
   end
 
   private
