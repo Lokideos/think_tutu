@@ -37,13 +37,13 @@
           <tr>
             <td><%= station.title %></td>
             <td>
-              <%= form_tag update_position_railway_station_path(station), method: :patch do %>
+              <%= form_tag update_position_admin_railway_station_path(station), method: :patch do %>
                 <%= number_field_tag :position, station.position_in(@route) %>
                 <%= hidden_field_tag :route_id, @route.id %>
                 <%= submit_tag "Submit changes" %>
               <% end %>
             </td>
-            <%= form_tag update_travel_time_railway_station_path(station), method: :patch do %>
+            <%= form_tag update_travel_time_admin_railway_station_path(station), method: :patch do %>
               <td>              
                 <%= date_field_tag :arrival_time, station.arrival_at(@route) %>
                 <%= hidden_field_tag :route_id, @route.id %>                
@@ -61,4 +61,4 @@
   <% end %>  
 </p>
 
-<%= link_to 'Back', routes_path %>
+<%= link_to 'Back', admin_routes_path %>

@@ -36,12 +36,12 @@ class Admin::RailwayStationsController < Admin::BaseController
 
   def update_position
     @railway_station.update_position(@route, params[:position])
-    redirect_to @route
+    redirect_to [:admin, @route]
   end
 
   def update_travel_time
     @railway_station.update_travel_time(@route, params[:arrival_time], params[:departure_time])
-    redirect_to @route
+    redirect_to [:admin, @route]
   end
 
   def destroy
