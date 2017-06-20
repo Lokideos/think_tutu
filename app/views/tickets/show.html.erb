@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <td>Buyer</td>
       <td>Credentials</td>
       <td>Personal ID</td>
       <td>Train</td>
@@ -13,7 +14,8 @@
     </tr>
   </thead>
   <tbody>    
-    <tr>      
+    <tr>
+      <td><%= @ticket.user.email %></td>
       <td><%= @ticket.fio %></td>
       <td><%= @ticket.passport_data %></td>
       <td><%= @train.name %></td>

@@ -10,6 +10,16 @@
 
   <body>
 
+  <p id="notice" lass="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <% if user_signed_in? %>
+    <%= link_to "Exit", destroy_user_session_path, method: :delete %>
+    <p>Account: <%= current_user.email %></p>
+  <% else %>
+    <%= link_to "Sign In", new_user_session_path %>
+  <% end %>
+
   <%= yield %>
 
   <div class="footer">
