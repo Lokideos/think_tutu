@@ -1,5 +1,4 @@
-class RailwayStationsController < ApplicationController
-  before_action :authenticate_user!
+class Admin::RailwayStationsController < Admin::BaseController  
   before_action :set_railway_station, only: [:show, :edit, :update, :destroy, :update_position, :update_travel_time]
   before_action :set_route, only: [:update_position, :update_travel_time]
 
@@ -21,7 +20,7 @@ class RailwayStationsController < ApplicationController
     @railway_station = RailwayStation.new(railway_station_params)
 
     if @railway_station.save
-      redirect_to @railway_station
+      redirect_to admin_railway_station_path(@railway_station)
     else
       render :new
     end
@@ -47,7 +46,7 @@ class RailwayStationsController < ApplicationController
 
   def destroy
     @railway_station.destroy
-    redirect_to railway_stations_path
+    redirect_to admin_railway_stations_path
   end
 
   private
