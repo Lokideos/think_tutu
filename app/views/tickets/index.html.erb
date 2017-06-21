@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tickets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Owner</th>
+      <th>Credentials</th>
+      <th>Personal ID</th>
+      <th>Train</th>
+      <th>Arrival Time</th>
+      <th>Departure Time</th>
+      <th colspan="7"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @tickets %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', "/" %>

@@ -1,9 +1,9 @@
-class TicketsController < ApplicationController
+class Admin::TicketsController < Admin::BaseController
   before_action :authenticate_user!
   before_action :find_ticket, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tickets = Ticket.where(:user_id => current_user.id)
+    @tickets = Ticket.all
   end
 
   def show
@@ -16,6 +16,7 @@ class TicketsController < ApplicationController
 
   def edit; end
 
+  #change
   def create
     @ticket = current_user.tickets.new(ticket_params)
 
@@ -42,7 +43,7 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:number, :fio, :passport_data, :departure_time, :first_station_id, :last_station_id, :train_id)
+    params.require(:ticket).permit(:number, :fio, :passport_data, :first_station_id, :last_station_id, :train_id)
   end
 
   def find_ticket
