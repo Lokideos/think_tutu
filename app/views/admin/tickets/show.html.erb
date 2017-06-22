@@ -18,9 +18,10 @@
     <td><%= @ticket.fio %></td>
     <td><%= @ticket.passport_data %></td>
     <td><%= @ticket.train.name %></td>
-    <td><%= @train.arrival_time(@ticket.last_station_id) %></td>
-    <td><%= @train.departure_time(@ticket.first_station_id) %></td>
+    <td><%= @ticket.train.arrival_time(@ticket.last_station_id) %></td>
+    <td><%= @ticket.train.departure_time(@ticket.first_station_id) %></td>
   </tbody>
 </table>
 
+<%= link_to "Edit", edit_admin_ticket_path(@ticket) %>
 <%= link_to "Back", admin_tickets_path %>

@@ -18,10 +18,10 @@ class Admin::TicketsController < Admin::BaseController
 
   #change
   def create
-    @ticket = current_user.tickets.new(ticket_params)
+    @ticket = Ticket.new(ticket_params)
 
     if @ticket.save
-      redirect_to @ticket
+      redirect_to admin_ticket_path(@ticket)
     else
       render :new
     end
@@ -29,7 +29,7 @@ class Admin::TicketsController < Admin::BaseController
 
   def update
     if @ticket.update(ticket_params)
-      redirect_to @ticket
+      redirect_to admin_ticket_path(@ticket)
     else
       render :edit
     end
@@ -37,13 +37,13 @@ class Admin::TicketsController < Admin::BaseController
 
   def destroy
     @ticket.destroy
-    redirect_to tickets_path
+    redirect_to admin_tickets_path
   end
 
   private
 
   def ticket_params
-    params.require(:ticket).permit(:number, :fio, :passport_data, :first_station_id, :last_station_id, :train_id)
+    params.require(:ticket).permit(:number, :fio, :passport_data, :first_station_id, :last_station_id, :train_id, :user_id)
   end
 
   def find_ticket
