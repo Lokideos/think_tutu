@@ -7,6 +7,10 @@ class SearchesController < ApplicationController
 
   def new; end
 
+  def new_show
+    @stations = RailwayStation.all
+  end
+
   private
 
   def search_params
