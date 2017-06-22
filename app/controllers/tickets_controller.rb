@@ -3,7 +3,7 @@ class TicketsController < ApplicationController
   before_action :find_ticket, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tickets = Ticket.where(:user_id => current_user.id)
+    @tickets = current_user.tickets
   end
 
   def show
@@ -47,5 +47,6 @@ class TicketsController < ApplicationController
 
   def find_ticket
     @ticket = Ticket.find(params[:id])
+    redirect_to root_path, notice: "You don't have enough permissions to view this page" unless @ticket.user_id == current_user.id
   end
 end
