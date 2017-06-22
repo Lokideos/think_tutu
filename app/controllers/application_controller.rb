@@ -4,9 +4,11 @@ class ApplicationController < ActionController::Base
   after_action :store_action
 
   def after_sign_in_path_for(resource)    
-    path = new_search_path 
-    path = welcome_admin_path if resource.admin?
-    path
+    if resource.admin?
+      welcome_admin_path
+    else
+      new_search_path
+    end    
   end
 
   protected
