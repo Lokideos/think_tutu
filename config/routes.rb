@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :sessions => "users/sessions_with_notice" }
-  
+  devise_for :users, controllers: { sessions: 'users/sessions_with_notice' }
+
   resources :tickets
 
   resource :search, only: [:new, :show]
 
   namespace :admin do
-
     resources :railway_stations do
       patch :update_position, on: :member
       patch :update_travel_time, on: :member
@@ -18,7 +17,6 @@ Rails.application.routes.draw do
 
     resources :routes
     resources :tickets
-
   end
 
   get 'welcome/index'

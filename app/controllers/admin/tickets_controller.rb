@@ -15,7 +15,7 @@ class Admin::TicketsController < Admin::BaseController
   end
 
   def edit; end
-  
+
   def create
     @ticket = Ticket.new(ticket_params)
 

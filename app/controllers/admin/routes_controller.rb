@@ -5,15 +5,13 @@ class Admin::RoutesController < Admin::BaseController
     @routes = Route.all
   end
 
-  def show
-  end
+  def show; end
 
-  def new 
+  def new
     @route = Route.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @route = Route.new(route_params)
