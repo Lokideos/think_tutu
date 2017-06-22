@@ -41,7 +41,7 @@
   <%= @train.seats_by_car_and_seat_types("CattleCar", "side_bottom_seats") %>
   <ul>
     <% @train.cars.cattle.each do |car| %>      
-      <li><%= link_to "Car number #{car.number}", car.becomes(Car) %></li>      
+      <li><%= link_to "Car number #{car.number}", [:admin, car.becomes(Car)] %></li>      
     <% end %>
   </ul>
 </p>
@@ -55,7 +55,7 @@
   <%= @train.seats_by_car_and_seat_types("CoupeCar", "bottom_seats") %>
   <ul>
     <% @train.cars.coupe.each do |car| %>      
-      <li><%= link_to "Car number #{car.number}", car.becomes(Car) %></li>      
+      <li><%= link_to "Car number #{car.number}", [:admin, car.becomes(Car)] %></li>      
     <% end %>
   </ul>
 </p>
@@ -67,7 +67,7 @@
   <%= @train.seats_by_car_and_seat_types("SvCar", "bottom_seats") %>
   <ul>
     <% @train.cars.sv.each do |car| %>      
-      <li><%= link_to "Car number #{car.number}", car.becomes(Car) %></li>      
+      <li><%= link_to "Car number #{car.number}", [:admin, car.becomes(Car)] %></li>      
     <% end %>
   </ul>
 </p>
@@ -79,7 +79,7 @@
   <%= @train.seats_by_car_and_seat_types("SeatOnlyCar", "seat_only_places") %>
   <ul>
     <% @train.cars.seat_only.each do |car| %>      
-      <li><%= link_to "Car number #{car.number}", car.becomes(Car) %></li>      
+      <li><%= link_to "Car number #{car.number}", [:admin, car.becomes(Car)] %></li>      
     <% end %>
   </ul>
 </p>
@@ -88,7 +88,7 @@
   <strong>Cars by position in train</strong>
   <ul>    
     <% @train.cars.ordered_by_position(@train.sort_type).each do |car| %>    
-      <li><%= car.number_in_train %> - <%= link_to "Car number #{car.number}", car.becomes(Car) %></li>
+      <li><%= car.number_in_train %> - <%= link_to "Car number #{car.number}", [:admin, car.becomes(Car)] %></li>
     <% end %>
   </ul>
 </p>
