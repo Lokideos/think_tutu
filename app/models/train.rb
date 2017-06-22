@@ -7,19 +7,32 @@ class Train < ApplicationRecord
   def cars_quantity_by_type(chosen_type)
     cars.where(type: chosen_type).size
   end
-
-  # Needed method
+  
   def seats_by_car_and_seat_types(chosen_car_type, seat_type)
     cars.where(type: chosen_car_type).sum(seat_type)
   end
 
   def departure_time(departure_station_id)
-    route.railway_stations_routes.find_by(railway_station_id: departure_station_id).departure_time
+    if route.railway_stations_routes.find_by(railway_station_id: departure_station_id) 
+      route.railway_stations_routes.find_by(railway_station_id: departure_station_id).departure_time
+    else
+      error_msg
+    end
   end
 
   def arrival_time(arrival_station_id)
-    route.railway_stations_routes.find_by(railway_station_id: arrival_station_id).arrival_time
+    if route.railway_stations_routes.find_by(railway_station_id: arrival_station_id)
+      route.railway_stations_routes.find_by(railway_station_id: arrival_station_id).arrival_time
+    else
+      error_msg
+    end
   end
 
   validates :name, :number, presence: true
+
+  protected
+
+  def error_msg
+    "ERROR - no trains on this route"
+  end
 end

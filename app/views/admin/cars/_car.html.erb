@@ -1,0 +1,25 @@
+<tr>    
+  <td><%= car.number %></td>
+  <td><%= car.type %></td>
+  <td><%= car.top_seats %></td>
+  <td><%= car.bottom_seats %></td>
+  <% if car.train.present? %>
+    <td>    
+      <%= car.train.name %>
+    </td>
+    <td>
+      <%= car.number_in_train %>
+    </td>
+  <% else %>
+    <td>
+      Undefined
+    </td>
+    <td>
+      -
+    </td>
+  <% end %>
+  </td>
+  <td><%= link_to 'Show', [:admin, car] %></td>
+  <td><%= link_to 'Edit', edit_admin_car_path(car) %></td>
+  <td><%= link_to 'Destroy', admin_car_path(car), method: :delete, data: { confirm: "Are you sure?" } %>
+</tr>

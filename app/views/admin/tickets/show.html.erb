@@ -1,0 +1,22 @@
+<h2>Ticket information:</h2>
+
+<table>
+  <thead>
+    <tr>
+      <td>Owner</td>
+      <td>Credentials</td>
+      <td>Personal ID</td>
+      <td>Train</td>
+      <td width = 150px>Arrival Time</td>
+      <td width = 150px>Departure Time</td>
+    </tr>
+  </thead>
+  <tbody>
+
+    <%= render @ticket %>
+    
+  </tbody>
+</table>
+
+<%= link_to "Edit", edit_admin_ticket_path(@ticket) %>
+<%= link_to "Back", admin_tickets_path %>

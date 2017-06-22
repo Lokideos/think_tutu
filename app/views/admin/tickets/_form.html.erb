@@ -1,0 +1,44 @@
+<%= form_for [:admin, ticket] do |f| %>
+  
+  <%= render '/common/error_check', resource: ticket %>
+
+  <div class = "field">
+    <%= f.label("Ticket owner") %>
+    <%= f.collection_select :user_id, User.all, :id, :email %>
+  </div>
+
+  <div class = "field">
+    <%= f.label("Ticket number") %>
+    <%= f.number_field :number %>
+  </div>
+
+  <div class = "field">
+    <%= f.label("Credentials") %>
+    <%= f.text_field :fio %>
+  </div>
+
+  <div class = "field">
+    <%= f.label("Passport Data") %>
+    <%= f.text_field :passport_data %>
+  </div>
+
+  <div class = "field">
+    <%= f.label("Departure station") %>
+    <%= f.collection_select :first_station_id, RailwayStation.all, :id, :title %>
+  </div>
+
+  <div class = "field">
+    <%= f.label("Arrival station") %>
+    <%= f.collection_select :last_station_id, RailwayStation.all, :id, :title %>
+  </div>
+
+  <div class = "field">
+    <%= f.label("Train") %>    
+    <%= f.collection_select :train_id, Train.all, :id, :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+
+<% end %>

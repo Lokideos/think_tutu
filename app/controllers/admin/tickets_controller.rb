@@ -1,9 +1,9 @@
-class TicketsController < ApplicationController
+class Admin::TicketsController < Admin::BaseController
   before_action :authenticate_user!
   before_action :find_ticket, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tickets = current_user.tickets
+    @tickets = Ticket.all
   end
 
   def show
@@ -17,10 +17,10 @@ class TicketsController < ApplicationController
   def edit; end
 
   def create
-    @ticket = current_user.tickets.new(ticket_params)
+    @ticket = Ticket.new(ticket_params)
 
     if @ticket.save
-      redirect_to @ticket
+      redirect_to admin_ticket_path(@ticket)
     else
       render :new
     end
@@ -28,7 +28,7 @@ class TicketsController < ApplicationController
 
   def update
     if @ticket.update(ticket_params)
-      redirect_to @ticket
+      redirect_to admin_ticket_path(@ticket)
     else
       render :edit
     end
@@ -36,17 +36,16 @@ class TicketsController < ApplicationController
 
   def destroy
     @ticket.destroy
-    redirect_to tickets_path
+    redirect_to admin_tickets_path
   end
 
   private
 
   def ticket_params
-    params.require(:ticket).permit(:number, :fio, :passport_data, :departure_time, :first_station_id, :last_station_id, :train_id)
+    params.require(:ticket).permit(:number, :fio, :passport_data, :first_station_id, :last_station_id, :train_id, :user_id)
   end
 
   def find_ticket
     @ticket = Ticket.find(params[:id])
-    redirect_to root_path, notice: "You don't have enough permissions to view this page" unless @ticket.user_id == current_user.id
   end
 end

@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cars Listing</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Type</th>
+      <th>Top Seats</th>
+      <th>Bottom Seats</th>
+      <th>Train</th>
+      <th>Position</th>
+      <th colspan="7"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cars.becomes(Car) %>
+    <%= render @cars %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Car', new_admin_car_path %>

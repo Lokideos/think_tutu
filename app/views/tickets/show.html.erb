@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <td>Owner</td>
       <td>Credentials</td>
       <td>Personal ID</td>
       <td>Train</td>
@@ -13,14 +14,13 @@
     </tr>
   </thead>
   <tbody>    
-    <tr>      
-      <td><%= @ticket.fio %></td>
-      <td><%= @ticket.passport_data %></td>
-      <td><%= @train.name %></td>
-      <td><%= @train.arrival_time(@ticket.last_station_id) %></td>
-      <td><%= @train.departure_time(@ticket.first_station_id) %></td>      
-    </tr>
+    <td><%= @ticket.user.email %></td>
+    <td><%= @ticket.fio %></td>
+    <td><%= @ticket.passport_data %></td>
+    <td><%= @ticket.train.name %></td>
+    <td><%= @train.arrival_time(@ticket.last_station_id) %></td>
+    <td><%= @train.departure_time(@ticket.first_station_id) %></td>
   </tbody>
 </table>
 
-<%= link_to "Back", "/" %>
+<%= link_to "Back", tickets_path %>

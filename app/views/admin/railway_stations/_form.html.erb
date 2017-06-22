@@ -1,0 +1,18 @@
+<%= form_for [:admin, railway_station] do |f| %>
+
+  <%= render '/common/error_check', resource: railway_station %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :route_ids %>
+    <%= f.collection_select :route_ids, Route.all, :id, :name, {}, { multiple: true } %>
+  </div>    
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

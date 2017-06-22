@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Trains</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number</th>
+      <th>Current Route</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @trains %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Train', new_admin_train_path %>
