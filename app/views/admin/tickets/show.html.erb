@@ -1,5 +1,3 @@
-<h1>Thanks for purchasing!</h1>
-
 <h2>Ticket information:</h2>
 
 <table>
@@ -13,13 +11,10 @@
       <td width = 150px>Departure Time</td>
     </tr>
   </thead>
-  <tbody>    
-    <td><%= @ticket.user.email %></td>
-    <td><%= @ticket.fio %></td>
-    <td><%= @ticket.passport_data %></td>
-    <td><%= @ticket.train.name %></td>
-    <td><%= @ticket.train.arrival_time(@ticket.last_station_id) %></td>
-    <td><%= @ticket.train.departure_time(@ticket.first_station_id) %></td>
+  <tbody>
+
+    <%= render @ticket %>
+    
   </tbody>
 </table>
 

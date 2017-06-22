@@ -1,6 +1,11 @@
-<%= form_for(@ticket) do |f| %>
+<%= form_for [:admin, ticket] do |f| %>
   
   <%= render '/common/error_check', resource: ticket %>
+
+  <div class = "field">
+    <%= f.label("Ticket owner") %>
+    <%= f.collection_select :user_id, User.all, :id, :email %>
+  </div>
 
   <div class = "field">
     <%= f.label("Ticket number") %>
@@ -33,7 +38,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Change ticket's data" %>
+    <%= f.submit "Submit" %>
   </div>
 
 <% end %>
