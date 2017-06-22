@@ -3,8 +3,8 @@
   <td><%= ticket.fio %></td>
   <td><%= ticket.passport_data %></td>
   <td><%= ticket.train.name %></td>
-  <td><%= ticket.train.arrival_time(2) %></td>
-  <td><%= ticket.train.departure_time(2) %></td>
+  <td><%= ticket.train.arrival_time(ticket.last_station_id) %></td>
+  <td><%= ticket.train.departure_time(ticket.first_station_id) %></td>
   <td><%= link_to 'Show Details', admin_ticket_path(ticket) %></td>
   <td><%= link_to 'Edit Details', edit_admin_ticket_path(ticket) %></td>
   <td><%= link_to 'Cancel Travel', admin_ticket_path(ticket), method: :delete, data: { confirm: "Are you sure?" } %></td>
