@@ -7,11 +7,14 @@ ru:
       railway_station:
         title: 'Название'
         current_station: 'Текущая станция'
+        route_ids: "Маршруты"
       train:
         name: "Название"
         number: 'Номер'
+        route_id: "Маршрут"
       route:
         name: "Название"
+        railway_station_ids: 'Станции'
       ticket:
         number: "Номер билета"
       user:

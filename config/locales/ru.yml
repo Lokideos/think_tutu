@@ -1,11 +1,42 @@
 ru:   
   common:
     back: 'Назад'
+    show: 'Показать'
+    edit: 'Изменить'
     errors: 'возникла при заполнении формы'
+    exit: 'Выйти'
+    sign_in: 'Войти'
   admin:
+    path: 'Админка'
     railway_stations:
       new:
-        title: 'Новая станция'          
+        title: 'Новая станция'
+      edit:
+        title: 'Изменить станцию'      
       form:
         submit: '%{action} станцию'
-  
+    trains:
+      new:
+        title: 'Новый поезд'
+      edit:
+        title: 'Изменить поезд'
+      form:
+        car_sort: 'Порядок вагонов, присоединенных к поезду:'
+        decrease_sort: 'По возрастанию'
+        increase_sort: 'По убыванию'
+        submit: '%{action} поезд'
+    routes:
+      new:
+        title: 'Новый маршрут'
+      edit:
+        title: 'Изменить маршрут'
+      form:
+        submit: '%{action} маршрут'
+  railway_stations:
+    path: 'Станции'
+  routes:
+    path: 'Маршруты'
+  trains:
+    path: 'Поезда'
+  tickets:
+    path: 'Билеты'
