@@ -1,7 +1,7 @@
 ru:   
   common:
     back: 'Назад'
-    errors: 'При заполнении формы возникли ошибки'
+    errors: 'возникла при заполнении формы'
   admin:
     railway_stations:
       new:
