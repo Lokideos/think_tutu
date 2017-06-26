@@ -13,20 +13,20 @@
   </div>
 
   <div class="field">
-    <%= f.label :route_id, "Current Route" %>
+    <%= f.label :route_id %>
     <%= f.collection_select :route_id, Route.all, :id, :name %>
   </div>
   
   <div class="field">
-    <strong>Type of Sort for cars attached to train</strong>
-    <%= f.label :ascend %>
+    <strong><%= t('.car_sort')%></strong>
+    <%= f.label :ascend, t('.increase_sort') %>
     <%= f.radio_button :sort_type, "1" %> 
-    <%= f.label :descend %>
+    <%= f.label :descend, t('.decrease_sort') %>
     <%= f.radio_button :sort_type, "0" %>
   </div>
   
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t('.submit', action: @train.new_record? ? "Создать" : "Изменить") %>
   </div>
 <% end %>
