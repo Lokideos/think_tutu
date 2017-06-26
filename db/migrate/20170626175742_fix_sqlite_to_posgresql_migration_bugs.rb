@@ -6,8 +6,7 @@ class FixSqliteToPosgresqlMigrationBugs < ActiveRecord::Migration[5.0]
 
     add_column :tickets, :fio, :string
     add_column :tickets, :passport_data, :string
-
-    remove_column :trains, :sort_type, :string
+    
     add_column :trains, :sort_type, :boolean, default: false, null: false
   end
 end
