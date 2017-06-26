@@ -7,11 +7,16 @@
 default: &default
   adapter: postgresql
   pool: 5
+  host: localhost  
   timeout: 5000
+  username: lokideos
+  password: 129327921
 
 development:
   <<: *default
   database: tutu_development
+  username: lokideos
+  password: 129327921
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
