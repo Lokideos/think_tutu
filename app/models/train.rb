@@ -7,13 +7,13 @@ class Train < ApplicationRecord
   def cars_quantity_by_type(chosen_type)
     cars.where(type: chosen_type).size
   end
-  
+
   def seats_by_car_and_seat_types(chosen_car_type, seat_type)
     cars.where(type: chosen_car_type).sum(seat_type)
   end
 
   def departure_time(departure_station_id)
-    if route.railway_stations_routes.find_by(railway_station_id: departure_station_id) 
+    if route.railway_stations_routes.find_by(railway_station_id: departure_station_id)
       route.railway_stations_routes.find_by(railway_station_id: departure_station_id).departure_time
     else
       error_msg
@@ -33,6 +33,6 @@ class Train < ApplicationRecord
   protected
 
   def error_msg
-    "ERROR - no trains on this route"
+    'ERROR - no trains on this route'
   end
 end

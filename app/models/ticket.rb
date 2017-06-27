@@ -8,7 +8,7 @@ class Ticket < ApplicationRecord
   after_destroy :send_cancel_notification
 
   def route_name
-  	"#{first_station.title} - #{last_station.title}"
+    "#{first_station.title} - #{last_station.title}"
   end
 
   validates :number, presence: true
@@ -20,11 +20,10 @@ class Ticket < ApplicationRecord
   end
 
   def send_purchase_notification
-  	TicketsMailer.buy_ticket(self.user, self).deliver_now
+    TicketsMailer.buy_ticket(user, self).deliver_now
   end
 
   def send_cancel_notification
-    TicketsMailer.cancel_ticket(self.user, self).deliver_now
+    TicketsMailer.cancel_ticket(user, self).deliver_now
   end
-
 end
