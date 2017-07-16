@@ -25,6 +25,11 @@ ru:
         decrease_sort: 'По возрастанию'
         increase_sort: 'По убыванию'
         submit: '%{action} поезд'
+      inline_form:
+        car_sort: 'Порядок вагонов, присоединенных к поезду:'
+        decrease_sort: 'По возрастанию'
+        increase_sort: 'По убыванию'
+        submit: '%{action} поезд'
     routes:
       new:
         title: 'Новый маршрут'
