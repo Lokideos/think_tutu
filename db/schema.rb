@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170716124957) do
+ActiveRecord::Schema.define(version: 20170716152331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cars", force: :cascade do |t|
+    t.integer  "number"
+    t.integer  "top_seats"
+    t.integer  "bottom_seats"
+    t.integer  "side_top_seats"
+    t.integer  "side_bottom_seats"
+    t.integer  "seat_only_places"
+    t.integer  "train_id"
+    t.integer  "number_in_train"
+    t.string   "type"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["train_id"], name: "index_cars_on_train_id", using: :btree
+  end
 
   create_table "railway_stations", force: :cascade do |t|
     t.string   "title"
