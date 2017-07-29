@@ -10,39 +10,39 @@
   </div>
 
   <div class="field">
-    <%= f.label :top_seats %>
-    <%= f.text_field :top_seats %>
-  </div>
-
-  <div class="field">
-    <%= f.label :bottom_seats %>
-    <%= f.text_field :bottom_seats %>
-  </div>
-
-  <div class="field">
-    <%= f.label :side_top_seats %>
-    <%= f.text_field :side_top_seats %>
-  </div>
-
-  <div class="field">
-    <%= f.label :side_bottom_seats %>
-    <%= f.text_field :side_bottom_seats %>
-  </div>
-
-  <div class="field">
-    <%= f.label :seat_only_places %>
-    <%= f.text_field :seat_only_places %>
+    <%= f.label :train_id, "Current Train" %>
+    <%= f.collection_select :train_id, Train.all, :id, :name %>
   </div>
 
   <div class="field">
     <%= f.label :type %>
     <%= f.select :type, %w(CoupeCar CattleCar SeatOnlyCar SvCar) %>
-  </div>
-    
-  <div class="field">
-    <%= f.label :train_id, "Current Train" %>
-    <%= f.collection_select :train_id, Train.all, :id, :name %>
   </div>    
+
+  <div class="field CarType CoupeCar CattleCar">
+    <%= f.label :top_seats %>
+    <%= f.text_field :top_seats %>
+  </div>
+
+  <div class="field CarType CoupeCar CattleCar SvCar">
+    <%= f.label :bottom_seats %>
+    <%= f.text_field :bottom_seats %>
+  </div>
+
+  <div class="field CarType CattleCar">
+    <%= f.label :side_top_seats %>
+    <%= f.text_field :side_top_seats %>
+  </div>
+
+  <div class="field CarType CattleCar">
+    <%= f.label :side_bottom_seats %>
+    <%= f.text_field :side_bottom_seats %>
+  </div>
+
+  <div class="field CarType SeatOnlyCar">
+    <%= f.label :seat_only_places %>
+    <%= f.text_field :seat_only_places %>
+  </div>      
 
   <div class="actions">
     <%= f.submit %>
