@@ -1,4 +1,5 @@
-$(document).ready(function() {
+var ready;
+ready = function() {
   var carType;
   var carTypes;  
 
@@ -7,5 +8,6 @@ $(document).ready(function() {
     $(".CarType").hide();
     $("." + carType).show();
   });
-
-});
+}
+$(document).ready(ready);
+$(document).on('turbolinks:load',ready);
